@@ -13,8 +13,12 @@ struct SpaceX_Launch_ChallengeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentViewFactory
-                .makeContentView()
+            NavigationView(content: {
+                ContentViewFactory
+                    .makeContentView()
+                    .navigationTitle("SpaceX")
+                    .navigationBarItems(trailing: NavigationLink(destination: Text("Destination")) { Text("Filter") })
+            })
         }
     }
 }
