@@ -14,18 +14,16 @@ struct ContentView: View {
     @EnvironmentObject var dataEmitter: DataEmitter
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true, content: {
-            VStack {
-                SectionTitle(title: "Company")
+        List {
+            Section(header: Text("Company")) {
                 Text("The current name is \(dataEmitter.randomModel.name), and their random number is \(dataEmitter.randomModel.age)")
-                    .frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                SectionTitle(title: "Launches")
-                LaunchItemView()
-                LaunchItemView()
-                LaunchItemView()
             }
-        })
+            Section(header: Text("Launches")) {
+                ForEach(dataEmitter.launches) { launch in
+                    LaunchItemView()
+                }
+            }
+        }.listStyle(PlainListStyle())
     }
 }
 
@@ -37,19 +35,5 @@ struct ContentView_Previews: PreviewProvider {
             ContentView(interactor: MockInteractor())
                 .environmentObject(DataEmitter())
         }
-    }
-}
-
-struct SectionTitle: View {
-
-    let title: String
-
-    var body: some View {
-        Text(title)
-            .textCase(.uppercase)
-            .foregroundColor(.white)
-            .padding(10)
-            .frame(minWidth: .none, idealWidth: .infinity, maxWidth: .infinity, alignment: .leading)
-            .background(Rectangle().foregroundColor(.black))
     }
 }

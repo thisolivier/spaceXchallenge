@@ -14,10 +14,11 @@ struct LaunchItemView: View {
                 Image("None")
                     .frame(width: 50, height: 50)
                     .border(Color.black, width: 1)
-                VStack(alignment: .leading) {
-                    InformationRowView(title: "One", content: "Is the loniest number")
-                    InformationRowView(title: "That you'll ever know", content: "Two, can be as bad as one, it's the lonliest number since")
-                    InformationRowView(title: "The Number", content: "One")
+                List {
+                    InformationRowView(title: "Mission", content: "Eat the World & its Moon")
+                    InformationRowView(title: "Date/Time", content: "20/12/2021 at 12:45")
+                    InformationRowView(title: "Rocket", content: "Thunderbird 1 / Space Vehicle")
+                    InformationRowView(title: "Days since now", content: "-200")
                 }
                 Spacer()
                 Image("None")
@@ -26,7 +27,6 @@ struct LaunchItemView: View {
             }
             .padding(.horizontal, 5)
             .padding(.top, 20)
-            Divider()
         }
     }
 }
