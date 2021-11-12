@@ -13,6 +13,7 @@
 		09F3CFFD273C830600D7AF6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F3CFFC273C830600D7AF6A /* Preview Assets.xcassets */; };
 		09F3D008273C830600D7AF6A /* SpaceX_Launch_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D007273C830600D7AF6A /* SpaceX_Launch_ChallengeTests.swift */; };
 		09F3D013273C830600D7AF6A /* SpaceX_Launch_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D012273C830600D7AF6A /* SpaceX_Launch_ChallengeUITests.swift */; };
+		09F3D021273E96DE00D7AF6A /* ContentViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D020273E96DE00D7AF6A /* ContentViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		09F3D00E273C830600D7AF6A /* SpaceX Launch ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpaceX Launch ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3D012273C830600D7AF6A /* SpaceX_Launch_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceX_Launch_ChallengeUITests.swift; sourceTree = "<group>"; };
 		09F3D014273C830600D7AF6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09F3D020273E96DE00D7AF6A /* ContentViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				09F3CFF5273C830600D7AF6A /* SpaceX_Launch_ChallengeApp.swift */,
 				09F3CFF7273C830600D7AF6A /* ContentView.swift */,
+				09F3D020273E96DE00D7AF6A /* ContentViewFactory.swift */,
 				09F3CFF9273C830600D7AF6A /* Assets.xcassets */,
 				09F3CFFE273C830600D7AF6A /* Info.plist */,
 				09F3CFFB273C830600D7AF6A /* Preview Content */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F3CFF8273C830600D7AF6A /* ContentView.swift in Sources */,
+				09F3D021273E96DE00D7AF6A /* ContentViewFactory.swift in Sources */,
 				09F3CFF6273C830600D7AF6A /* SpaceX_Launch_ChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

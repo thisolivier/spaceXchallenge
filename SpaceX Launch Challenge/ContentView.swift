@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    var interactor: ContentInteractorable
+    @EnvironmentObject var dataEmitter: DataEmitter
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack {
+            Text(dataEmitter.randomModel.name)
+                .padding()
+            Text(String(dataEmitter.randomModel.age))
+                .padding()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(interactor: MockInteractor())
+            .environmentObject(DataEmitter())
     }
 }
