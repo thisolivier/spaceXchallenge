@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     var interactor: ContentInteractorable
-    @EnvironmentObject var dataEmitter: DataEmitter
+    @EnvironmentObject var dataEmitter: ContentPresenter
 
     var body: some View {
         List {
@@ -31,9 +31,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView(interactor: MockInteractor())
-                .environmentObject(DataEmitter())
+                .environmentObject(ContentPresenter())
             ContentView(interactor: MockInteractor())
-                .environmentObject(DataEmitter())
+                .environmentObject(ContentPresenter())
         }
     }
 }
