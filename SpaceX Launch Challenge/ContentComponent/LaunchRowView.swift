@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LaunchItemView: View {
+struct LaunchRowView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -31,9 +31,9 @@ struct LaunchItemView: View {
     }
 }
 
-struct LaunchItemView_Previews: PreviewProvider {
+struct LaunchRowView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchItemView()
+        LaunchRowView()
     }
 }
 

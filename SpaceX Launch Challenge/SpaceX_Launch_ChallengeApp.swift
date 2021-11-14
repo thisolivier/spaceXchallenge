@@ -14,7 +14,7 @@ struct SpaceX_Launch_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView(content: {
-                ContentViewFactory
+                LaunchesViewFactory
                     .makeContentView()
                     .navigationTitle("SpaceX")
                     .navigationBarItems(trailing: NavigationLink(destination: FilterView()) { Text("Filter") })

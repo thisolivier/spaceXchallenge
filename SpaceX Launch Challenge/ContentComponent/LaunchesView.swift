@@ -9,30 +9,28 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var interactor: ContentInteractorable
-    @EnvironmentObject var dataEmitter: ContentPresenter
+struct LaunchesView: View {
 
     var body: some View {
         List {
-            Section(header: Text("Company")) {
+            Section(header: Text(StaticStrings.companySectionTitle)) {
                 Text("The current name is \(dataEmitter.randomModel.name), and their random number is \(dataEmitter.randomModel.age)")
             }
-            Section(header: Text("Launches")) {
+            Section(header: Text(StaticStrings.launchesSectionTitle)) {
                 ForEach(dataEmitter.launches) { launch in
-                    LaunchItemView()
+                    LaunchRowView()
                 }
             }
         }.listStyle(PlainListStyle())
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LaunchesView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView(interactor: MockInteractor())
+            LaunchesView(interactor: MockInteractor())
                 .environmentObject(ContentPresenter())
-            ContentView(interactor: MockInteractor())
+            LaunchesView(interactor: MockInteractor())
                 .environmentObject(ContentPresenter())
         }
     }

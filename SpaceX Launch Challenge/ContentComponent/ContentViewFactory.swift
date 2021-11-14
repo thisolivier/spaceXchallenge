@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-enum ContentViewFactory {
+enum LaunchesViewFactory {
     static func makeContentView() -> some View {
-        let dataEmitter = ContentPresenter()
-        let interactor = ContentInteractor(output: dataEmitter)
-
-        return ContentView(interactor: interactor)
-            .environmentObject(dataEmitter)
+        return Text("This is a mock") // TODO: Fix this with actual implementation
     }
 }

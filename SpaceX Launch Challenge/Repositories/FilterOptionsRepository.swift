@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FilterOptionsDataSource: ObservableObject {
+protocol FilterOptionsRepositable {
     var filterOptions: FilterOptions { get }
 
     func setYearRange(_ yearRange: YearRange)
@@ -15,8 +15,8 @@ protocol FilterOptionsDataSource: ObservableObject {
     func setOrdering(_ ordering: Ordering)
 }
 
-class FilterOptionsRepository: FilterOptionsDataSource {
-    @Published private(set) var filterOptions: FilterOptions = FilterOptions.initialOptions
+class FilterOptionsRepository: FilterOptionsRepositable {
+    private(set) var filterOptions: FilterOptions = FilterOptions.initialOptions
 
     func setYearRange(_ yearRange: YearRange) {
         filterOptions.yearRange = yearRange
