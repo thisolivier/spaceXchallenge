@@ -14,7 +14,7 @@ struct LaunchesView: View {
     var body: some View {
         List {
             Section(header: Text(StaticStrings.companySectionTitle)) {
-                Text("The current name is \(dataEmitter.randomModel.name), and their random number is \(dataEmitter.randomModel.age)")
+                Text("Dummy Text")
             }
             Section(header: Text(StaticStrings.launchesSectionTitle)) {
                 ForEach(dataEmitter.launches) { launch in

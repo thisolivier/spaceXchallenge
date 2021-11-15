@@ -22,6 +22,8 @@ class LaunchesViewModel: ObservableObject {
         self.spaceXRespoitory = spaceXRespoitory
 
         Publishers.Zip(spaceXRespoitory.getAllLaunches(), spaceXRespoitory.getAllRockets())
+        // TODO: Make a model for the launch row, which accepts a array of rockets and a launch as its inputs
+        
 
         spaceXRespoitory.getCompanyInfo()
             // Need to add in mapping to the appropriate string format

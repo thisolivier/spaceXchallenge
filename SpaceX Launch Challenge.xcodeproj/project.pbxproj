@@ -123,6 +123,7 @@
 		09F3CFF4273C830600D7AF6A /* SpaceX Launch Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				09F3D04627425BFA00D7AF6A /* Utilities */,
 				09F3D02F273FCFAD00D7AF6A /* Models */,
 				09F3D02C273FCF5F00D7AF6A /* Repositories */,
 				09F3D029273FCE4A00D7AF6A /* FilterComponent */,
@@ -202,6 +203,13 @@
 				09F3D0442741D6D800D7AF6A /* CompanyResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		09F3D04627425BFA00D7AF6A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
