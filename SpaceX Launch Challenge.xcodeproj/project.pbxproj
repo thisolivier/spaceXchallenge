@@ -27,6 +27,7 @@
 		09F3D0412741D33000D7AF6A /* RocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D0402741D33000D7AF6A /* RocketResponse.swift */; };
 		09F3D0432741D3C200D7AF6A /* LaunchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D0422741D3C200D7AF6A /* LaunchResponse.swift */; };
 		09F3D0452741D6D800D7AF6A /* CompanyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D0442741D6D800D7AF6A /* CompanyResponse.swift */; };
+		09F3D04A2742A8D000D7AF6A /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3D0492742A8D000D7AF6A /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		09F3D0402741D33000D7AF6A /* RocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketResponse.swift; sourceTree = "<group>"; };
 		09F3D0422741D3C200D7AF6A /* LaunchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchResponse.swift; sourceTree = "<group>"; };
 		09F3D0442741D6D800D7AF6A /* CompanyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyResponse.swift; sourceTree = "<group>"; };
+		09F3D0492742A8D000D7AF6A /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 		09F3D04627425BFA00D7AF6A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				09F3D0492742A8D000D7AF6A /* Date+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				09F3D037273FD11C00D7AF6A /* Ordering.swift in Sources */,
 				09F3D0452741D6D800D7AF6A /* CompanyResponse.swift in Sources */,
 				09F3D021273E96DE00D7AF6A /* ContentViewFactory.swift in Sources */,
+				09F3D04A2742A8D000D7AF6A /* Date+Extensions.swift in Sources */,
 				09F3D03F27418B0900D7AF6A /* SpaceXRepository.swift in Sources */,
 				09F3D0432741D3C200D7AF6A /* LaunchResponse.swift in Sources */,
 				09F3D033273FD10200D7AF6A /* YearRange.swift in Sources */,

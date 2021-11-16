@@ -10,9 +10,9 @@ import Foundation
 typealias RocketResponse = [RocketItem]
 
 struct RocketItem: Codable {
-    let name, type: String
+    let name, type, id: String
 
     enum CodingKeys: String, CodingKey {
-        case name, type
+        case name, type, id
     }
 }

@@ -12,9 +12,10 @@ typealias LaunchResponse = [LaunchItem]
 // MARK: - LaunchItem
 struct LaunchItem: Codable {
     let links: Links
-    let rocket: String
-    let success: Bool
-    let name, dateUTC: String
+    let rocket: String?
+    let success: Bool?
+    let name: String
+    let dateUTC: String
     let dateLocal: Date
     let id: String
 
@@ -28,7 +29,7 @@ struct LaunchItem: Codable {
 // MARK: - Links
 struct Links: Codable {
     let patch: Patch
-    let webcast, article, wikipedia: String
+    let webcast, article, wikipedia: String?
 
     enum CodingKeys: String, CodingKey {
         case patch, article, wikipedia, webcast
@@ -37,5 +38,5 @@ struct Links: Codable {
 
 // MARK: - Patch
 struct Patch: Codable {
-    let small, large: String
+    let small, large: String?
 }

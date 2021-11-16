@@ -24,7 +24,7 @@ class SpaceXRespository {
 
     private let session: URLSession
 
-    init(session: URLSession) {
+    init(session: URLSession = .shared) {
         self.session = session
     }
 }
@@ -39,7 +39,7 @@ extension SpaceXRespository: SpaceXRepositable {
     }
 
     var companyInfo: AnyPublisher<CompanyResponse, SpaceXError> {
-        makeRequest(with: commonComponents)
+        makeRequest(with: companyComponents)
     }
 
     private func makeRequest<T: Decodable>(with components: URLComponents) -> AnyPublisher<T, SpaceXError> {
@@ -47,8 +47,12 @@ extension SpaceXRespository: SpaceXRepositable {
             return Fail(error: SpaceXError.badURL).eraseToAnyPublisher()
         }
         return session.dataTaskPublisher(for: url)
-            .mapError { return SpaceXError.network($0.localizedDescription) }
-            .flatMap(maxPublishers: .max(1)) { self.decode($0.data) }
+            .mapError {
+                return SpaceXError.network($0.localizedDescription)
+            }
+            .flatMap(maxPublishers: .max(1)) { response in
+                self.decode(response.data)
+            }
             .eraseToAnyPublisher()
     }
 }
@@ -57,30 +61,34 @@ private extension SpaceXRespository {
     struct SpaceXAPI {
         static let scheme = "https"
         static let host = "api.spacexdata.com"
-        static let pathLaunches = "v5/launches"
-        static let pathRockets = "v4/rockets"
-        static let pathCompany = "v4/company"
+        static let pathLaunches = "/v5/launches"
+        static let pathRockets = "/v4/rockets"
+        static let pathCompany = "/v4/company"
     }
 
     var commonComponents: URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = SpaceXAPI.scheme
         urlComponents.host = SpaceXAPI.host
+        return urlComponents
     }
 
     var launchesComponents: URLComponents {
         var components = commonComponents
         components.path = SpaceXAPI.pathLaunches
+        return components
     }
 
     var rocketsComponents: URLComponents {
         var components = commonComponents
         components.path = SpaceXAPI.pathRockets
+        return components
     }
 
     var companyComponents: URLComponents {
         var components = commonComponents
         components.path = SpaceXAPI.pathCompany
+        return components
     }
 }
 
@@ -91,7 +99,9 @@ private extension SpaceXRespository {
         decoder.dateDecodingStrategy = .iso8601
         return Just(data)
             .decode(type: T.self, decoder: decoder)
-            .mapError { SpaceXError.decoding($0.localizedDescription) }
+            .mapError {
+                SpaceXError.decoding($0.localizedDescription)
+            }
             .eraseToAnyPublisher()
     }
 }

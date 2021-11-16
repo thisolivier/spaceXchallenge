@@ -5,33 +5,32 @@
 //  Created by Olivier Butler on 10/11/2021.
 //
 
-// Questions: How to align views? Especially text views and their padding.
-
 import SwiftUI
 
-struct LaunchesView: View {
+struct LaunchesView<ViewModel: LaunchesViewModelable>: View {
+
+    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         List {
             Section(header: Text(StaticStrings.companySectionTitle)) {
-                Text("Dummy Text")
+                Text(viewModel.companyInfoDataSource)
             }
             Section(header: Text(StaticStrings.launchesSectionTitle)) {
-                ForEach(dataEmitter.launches) { launch in
-                    LaunchRowView()
+                ForEach(viewModel.launchesDataSource) { launchRowViewModel in
+                    LaunchRowView(viewModel: launchRowViewModel)
+                        .listRowInsets(EdgeInsets())
                 }
             }
-        }.listStyle(PlainListStyle())
+        }
+        .listStyle(PlainListStyle())
     }
 }
 
 struct LaunchesView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LaunchesView(interactor: MockInteractor())
-                .environmentObject(ContentPresenter())
-            LaunchesView(interactor: MockInteractor())
-                .environmentObject(ContentPresenter())
+            LaunchesView(viewModel: MockLaunchesViewModel())
         }
     }
 }

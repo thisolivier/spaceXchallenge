@@ -9,6 +9,9 @@ import SwiftUI
 
 enum LaunchesViewFactory {
     static func makeContentView() -> some View {
-        return Text("This is a mock") // TODO: Fix this with actual implementation
+        let viewModel = LaunchesViewModel(
+            filterOptionsRepository: FilterOptionsRepository(),
+            spaceXRespoitory: SpaceXRespository())
+        return LaunchesView(viewModel: viewModel)
     }
 }

@@ -30,3 +30,16 @@ class FilterOptionsRepository: FilterOptionsRepositable {
         filterOptions.ordering = ordering
     }
 }
+
+class MockFilterOptionsRepository: FilterOptionsRepositable {
+    var filterOptions = FilterOptions(
+        yearRange: .init(startDate: nil, endDate: nil),
+        successFailureFilter: .both,
+        ordering: .descending)
+
+    func setYearRange(_ yearRange: YearRange) {}
+
+    func setSuccessFailureFilter(_ successFailureFilter: SuccessFailureFilter) {}
+
+    func setOrdering(_ ordering: Ordering) {}
+}
