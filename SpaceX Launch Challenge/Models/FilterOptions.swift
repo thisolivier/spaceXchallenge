@@ -9,11 +9,11 @@ import Foundation
 
 struct FilterOptions {
     var yearRange: YearRange
-    var successFailureFilter: SuccessFailureFilter
+    var successFilter: SuccessFilter
     var ordering: Ordering
 
     static let initialOptions: FilterOptions = FilterOptions(
-        yearRange: .init(startDate: nil, endDate: nil),
-        successFailureFilter: .both,
+        yearRange: .init(startYear: 2015, endYear: nil),
+        successFilter: .onlySuccess,
         ordering: .descending)
 }

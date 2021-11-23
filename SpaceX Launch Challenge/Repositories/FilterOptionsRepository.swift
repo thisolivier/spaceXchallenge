@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol FilterOptionsRepositable {
     var filterOptions: FilterOptions { get }
 
     func setYearRange(_ yearRange: YearRange)
-    func setSuccessFailureFilter(_ successFailureFilter: SuccessFailureFilter)
+    func setSuccessFilter(_ successFilter: SuccessFilter)
     func setOrdering(_ ordering: Ordering)
 }
 
@@ -22,8 +23,8 @@ class FilterOptionsRepository: FilterOptionsRepositable {
         filterOptions.yearRange = yearRange
     }
 
-    func setSuccessFailureFilter(_ successFailureFilter: SuccessFailureFilter) {
-        filterOptions.successFailureFilter = successFailureFilter
+    func setSuccessFilter(_ successFilter: SuccessFilter) {
+        filterOptions.successFilter = successFilter
     }
 
     func setOrdering(_ ordering: Ordering) {
@@ -33,13 +34,13 @@ class FilterOptionsRepository: FilterOptionsRepositable {
 
 class MockFilterOptionsRepository: FilterOptionsRepositable {
     var filterOptions = FilterOptions(
-        yearRange: .init(startDate: nil, endDate: nil),
-        successFailureFilter: .both,
+        yearRange: .init(startYear: nil, endYear: nil),
+        successFilter: .all,
         ordering: .descending)
 
     func setYearRange(_ yearRange: YearRange) {}
 
-    func setSuccessFailureFilter(_ successFailureFilter: SuccessFailureFilter) {}
+    func setSuccessFilter(_ successFilter: SuccessFilter) {}
 
     func setOrdering(_ ordering: Ordering) {}
 }

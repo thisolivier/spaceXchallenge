@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum SuccessFailureFilter {
-    case success, failure, both
+enum SuccessFilter {
+    case onlySuccess, all
 }

@@ -28,13 +28,40 @@ class LaunchesViewModel: LaunchesViewModelable {
         self.filterOptionsRepository = filterOptionsRepository
         self.spaceXRespoitory = spaceXRespoitory
 
-        spaceXRespoitory.allLaunches
-            // TODO: Add filtering here
+        let filteredAndOrderedLaunches: AnyPublisher<[LaunchItem], SpaceXError> = spaceXRespoitory
+            .allLaunches
+            .map { launches in
+                launches
+                    .filter { launchItem in
+                        switch filterOptionsRepository.filterOptions.successFilter {
+                        case .onlySuccess:
+                            return launchItem.success ?? false
+                        case .all:
+                            return true
+                        }
+                    }
+                    .filter { launchItem in
+                        return filterOptionsRepository
+                            .filterOptions
+                            .yearRange
+                            .isDateWithinInterval(launchItem.dateLocal)
+                    }
+                    .sorted { firstLaunch, secondLaunch in
+                        let decendingDates: Bool = firstLaunch.dateLocal > secondLaunch.dateLocal
+                        switch filterOptionsRepository.filterOptions.ordering {
+                        case .descending: return decendingDates
+                        case .ascending: return !decendingDates
+                        }
+                    }
+            }
+            .eraseToAnyPublisher()
+
+
+        filteredAndOrderedLaunches
             .zip(spaceXRespoitory.allRockets)
             .map { LaunchRowViewModel.constructListFrom(launchResponse: $0, rocketResponse: $1) }
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
-                guard let self = self else { return }
+            .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
                     break
@@ -44,10 +71,9 @@ class LaunchesViewModel: LaunchesViewModelable {
             }, receiveValue: { [weak self] value in
                 guard let self = self else { return }
                 self.launchesDataSource = value
+                print("We are outputting launches now, count is: \(value.count)")
             })
             .store(in: &disposables)
-        // TODO: Make a model for the launch row, which accepts a array of rockets and a launch as its inputs
-        
 
         spaceXRespoitory.companyInfo
             .map { companyResponse in
