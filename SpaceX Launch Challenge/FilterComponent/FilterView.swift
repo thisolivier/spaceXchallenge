@@ -9,8 +9,41 @@ import SwiftUI
 
 struct FilterView: View {
 
+    @State var showOnlySuccess: Bool = false
+    @State var ordering: Ordering = .descending
+    @State var startYear: Int?
+    @State var endYear: Int?
+
+    static var yearFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        return formatter
+    }
+
     var body: some View {
-        Text("Hello World")
+        Form {
+            Section(header: Text("Filter by launch state")) {
+                Toggle(isOn: $showOnlySuccess) {
+                    Text("Show only successful launches")
+                }
+            }
+            Section(header: Text("Filter by year")) {
+                TextField(
+                    "Start Year",
+                    value: $startYear,
+                    formatter: Self.yearFormatter)
+                TextField(
+                    "End Year",
+                    value: $startYear,
+                    formatter: Self.yearFormatter)
+            }
+            Section(header: Text("Sort by Date")) {
+                Picker(selection: $ordering, label: Text("Order by date")) {
+                    Text("Descending").tag(Ordering.descending)
+                    Text("Ascending").tag(Ordering.ascending)
+                }
+            }
+        }
     }
 }
 

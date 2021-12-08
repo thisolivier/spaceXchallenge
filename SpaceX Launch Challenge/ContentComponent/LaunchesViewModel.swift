@@ -15,7 +15,6 @@ protocol LaunchesViewModelable: ObservableObject {
 
 class LaunchesViewModel: LaunchesViewModelable {
 
-    // This is clunky, but allows us to use a protocol based VM with combine's publishers
     @Published var companyInfoDataSource: String = "Loading..."
     @Published var launchesDataSource: [LaunchRowViewModel] = []
 

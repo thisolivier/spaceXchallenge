@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0970EC6B275660A500D80F0A /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970EC6A275660A500D80F0A /* FilterViewModel.swift */; };
 		09F3CFF6273C830600D7AF6A /* SpaceX_Launch_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3CFF5273C830600D7AF6A /* SpaceX_Launch_ChallengeApp.swift */; };
 		09F3CFF8273C830600D7AF6A /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3CFF7273C830600D7AF6A /* LaunchesView.swift */; };
 		09F3CFFA273C830600D7AF6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F3CFF9273C830600D7AF6A /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0970EC6A275660A500D80F0A /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		09F3CFF2273C830600D7AF6A /* SpaceX Launch Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceX Launch Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3CFF5273C830600D7AF6A /* SpaceX_Launch_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceX_Launch_ChallengeApp.swift; sourceTree = "<group>"; };
 		09F3CFF7273C830600D7AF6A /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				09F3D02A273FCE7800D7AF6A /* FilterView.swift */,
+				0970EC6A275660A500D80F0A /* FilterViewModel.swift */,
 			);
 			path = FilterComponent;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				09F3D021273E96DE00D7AF6A /* ContentViewFactory.swift in Sources */,
 				09F3D04A2742A8D000D7AF6A /* Date+Extensions.swift in Sources */,
 				09F3D03F27418B0900D7AF6A /* SpaceXRepository.swift in Sources */,
+				0970EC6B275660A500D80F0A /* FilterViewModel.swift in Sources */,
 				09F3D0432741D3C200D7AF6A /* LaunchResponse.swift in Sources */,
 				09F3D033273FD10200D7AF6A /* YearRange.swift in Sources */,
 				09F3D031273FD0FD00D7AF6A /* FilterOptions.swift in Sources */,

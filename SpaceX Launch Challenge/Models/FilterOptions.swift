@@ -13,7 +13,7 @@ struct FilterOptions {
     var ordering: Ordering
 
     static let initialOptions: FilterOptions = FilterOptions(
-        yearRange: .init(startYear: 2015, endYear: nil),
-        successFilter: .onlySuccess,
+        yearRange: .init(startYear: nil, endYear: nil),
+        successFilter: .all,
         ordering: .descending)
 }
